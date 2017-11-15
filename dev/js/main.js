@@ -84,7 +84,119 @@ new Vue({
          }
       },
       CheckForWinCondition: function() {
+         // Check for vertical connections of four tokens
+         for(var x = 0; x < this.columnCount; x++) {
+            var connectCount = 0;
+            var lastTokenState = 0;
+            
+            for(var y = 0; y < this.rowCount; y++) {               
+               // Increment connect count for non-default matching sequential states 
+               if(this.tokenStates[x][y] != 0 && this.tokenStates[x][y] == lastTokenState) {
+                  connectCount++;               
+               }
+               else {
+                  connectCount = 0;
+               }
+               
+               if(connectCount >= 3) {
+                  this.isGameOver = true;
+                  return;
+               }
+               
+               // Update last token state to state of current token
+               lastTokenState = this.tokenStates[x][y];
+            }
+         }
          
+         // Check for horizontal connections of four tokens
+         for(var x = 0; x < this.rowCount; x++) {
+            var connectCount = 0;
+            var lastTokenState = 0;
+
+            for(var y = 0; y < this.columnCount; y++) {               
+               // Increment connect count for non-default matching sequential states 
+               if(this.tokenStates[y][x] != 0 && this.tokenStates[y][x] == lastTokenState) {
+                  connectCount++;
+               }
+               else {
+                  connectCount = 0;
+               }
+
+               if(connectCount >= 3) {
+                  this.isGameOver = true;
+                  return;
+               }
+
+               // Update last token state to state of current token
+               lastTokenState = this.tokenStates[y][x];
+            }
+         }         
+         
+         // Check for top left-to-right diagonal connections of four tokens
+         for(var x = 0; x < this.columnCount - 1; x++) {
+            var connectCount = 0;
+            
+            for(var y = 0; y < this.rowCount - 1; y++) {
+               var thisTokenState = this.tokenStates[x][y];
+
+               // Increment connect count for non-default matching sequential states 
+               if(thisTokenState != 0 && thisTokenState == this.tokenStates[x + 1][y + 1]) {
+                  connectCount++;
+
+                  if(x < this.columnCount - 2 && y < this.rowCount - 2) {
+                     if(thisTokenState == this.tokenStates[x + 2][y + 2]) {
+                        connectCount++;
+
+                        if(x < this.columnCount - 3 && y < this.rowCount - 3) {
+                           if(thisTokenState == this.tokenStates[x + 3][y + 3]) {
+                              connectCount++;
+                           }
+                        }
+                     }
+                  }      
+               }
+
+               if(connectCount >= 3) {
+                  this.isGameOver = true;
+                  break;
+               }
+               
+               connectCount = 0;
+            }
+         }
+            
+         // Check for top right-to-left diagonal connections of four tokens 
+         for(var x = this.columnCount - 1; x > 0 ; x--) { 
+            var connectCount = 0;
+            
+            for(var y = 0; y < this.rowCount - 1; y++) {
+               var thisTokenState = this.tokenStates[x][y];
+
+               // Increment connect count for non-default matching sequential states 
+               if(thisTokenState != 0 && thisTokenState == this.tokenStates[x - 1][y + 1]) {
+                  connectCount++;
+
+                  if(x < this.columnCount + 2 && y < this.rowCount - 2) {
+                     if(thisTokenState == this.tokenStates[x - 2][y + 2]) {
+                        connectCount++;
+
+                        if(x < this.columnCount + 3 && y < this.rowCount - 3) {
+                           if(thisTokenState == this.tokenStates[x - 3][y + 3]) {
+                              connectCount++;
+                           }
+                        }
+                     }
+                  }      
+               }
+
+               if(connectCount >= 3) {
+                  this.isGameOver = true;
+                  break;
+               }
+               
+               connectCount = 0;
+            }
+         }         
       },
       PrepareNextPlayerTurn: function() {
          this.isPlayerTurn = true;
