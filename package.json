@@ -1,0 +1,34 @@
+{
+  "name": "connectfour",
+  "version": "1.0.0",
+  "description": "Game of connect four using JavaScript, HTML, and CSS.",
+  "main": "index.html",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.18.12",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-clean-css": "^3.7.0",
+    "gulp-notify": "^3.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.0",
+    "minimatch": "^3.0.4",
+    "node-pre-gyp": "^0.6.36",
+    "run-sequence": "^2.1.0"
+  },
+  "scripts": {
+    "test": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PatrickPetrushonis/connect-four.git"
+  },
+  "author": "Patrick Petrushonis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PatrickPetrushonis/connect-four/issues"
+  },
+  "homepage": "https://github.com/PatrickPetrushonis/connect-four#readme"
+}
