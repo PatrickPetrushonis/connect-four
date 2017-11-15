@@ -33,9 +33,9 @@ function customPlumber(errTitle) {
 gulp.task('sync', function() {
   sync({
     // Set base directory of server to root folder
-    server: { baseDir: './' },
+    server: { baseDir: 'app/pages/' },
     // Prevents browsers from opening automatically
-    open: false,
+    open: true,
     // Disable pop-over notification
     notify: true
   })
@@ -80,7 +80,7 @@ gulp.task('pages', function() {
 // Watch specified folders and files for any changes
 gulp.task('watch', function() {
   gulp.watch(config.src + 'scss/**/*.scss', ['styles']);
-  gulp.watch(config.src + 'pages/**/*.html', ['html']);
+  gulp.watch(config.src + 'pages/**/*.html', ['pages']);
 });
 
 // Executes a sequence of tasks
