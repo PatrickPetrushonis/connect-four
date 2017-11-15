@@ -33,7 +33,7 @@ function customPlumber(errTitle) {
 gulp.task('sync', function() {
   sync({
     // Set base directory of server to root folder
-    server: { baseDir: 'app/pages/' },
+    server: { baseDir: './' },
     // Prevents browsers from opening automatically
     open: true,
     // Disable pop-over notification
@@ -46,16 +46,30 @@ gulp.task('delete', function(callback) {
     return del(config.dest, callback);
 });
 
+// Clean out files prior to build
+gulp.task('scripts', function() {
+  return gulp.src(config.src + 'js/main.js')
+    .pipe(customPlumber('Error Running Scripts'))
+    // Initialize sourcemaps
+    .pipe(maps.init())
+    // Write sourcemaps
+    .pipe(maps.write())
+    .pipe(gulp.dest(config.dest + 'js'))
+    .pipe(notify({ message: 'Scripts Complete!', onLast: true }))
+    // Tells browser sync to reload files when task is done
+    .pipe(sync.reload({ stream: true }))
+});
+
 // Compile all sass into css
 gulp.task('styles', function() {
   var sassOptions = { outputStyle: 'compressed' };
   var autoprefixerOptions = { browsers: ['last 2 versions', '> 5%', 'Firefox ESR'] };
 
-  return gulp.src(config.src + 'scss/**/*.scss')
+  return gulp.src(config.src + 'scss/main.scss')
     .pipe(customPlumber('Error Running Sass'))
     // Initialize sourcemaps
     .pipe(maps.init())
-    .pipe(sass(), sass(sassOptions))
+    .pipe(sass(sassOptions))
     // Add prefixes for IE8, IE9 and last 2 versions of all other browsers
     .pipe(prefix(autoprefixerOptions))
     // Write sourcemaps
@@ -66,28 +80,17 @@ gulp.task('styles', function() {
     .pipe(sync.reload({ stream: true }))
 });
 
-// Clean out files prior to build
-gulp.task('pages', function() {
-  return gulp.src(config.src + 'pages/**/*.html')
-    .pipe(customPlumber('Error Running Pages'))
-    .pipe(gulp.dest(config.dest + 'pages'))
-    .pipe(notify({ message: 'Pages Complete!', onLast: true }))
-    // Tells browser sync to reload files when task is done
-    .pipe(sync.reload({ stream: true }))
-
-});
-
 // Watch specified folders and files for any changes
 gulp.task('watch', function() {
+  gulp.watch(config.src + 'js/**/*.js', ['scripts']);
   gulp.watch(config.src + 'scss/**/*.scss', ['styles']);
-  gulp.watch(config.src + 'pages/**/*.html', ['pages']);
 });
 
 // Executes a sequence of tasks
 gulp.task('default', function(callback) {
   sequence(
     ['delete'],
-    ['styles', 'pages'],
+    ['scripts', 'styles'],
     ['sync', 'watch'],
     callback
   )

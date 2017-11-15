@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Connect Four</title>
+	<link href="app/css/main.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+	<div id="game">
+		<div class="container">
+		 <div class="column" v-on:click="AddTokenToColumn(0, $event)">
+		    <div class="cell"></div>
+		    <div class="cell"></div>
+		    <div class="cell"></div>
+		    <div class="cell"></div>
+		    <div class="cell"></div>
+		    <div class="cell"></div>
+		 </div>
+		 <div class="column" v-on:click="AddTokenToColumn(1, $event)">
+		    <div class="cell"></div>
+		    <div class="cell"></div>
+		    <div class="cell"></div>
+		    <div class="cell"></div>
+		    <div class="cell"></div>
+		    <div class="cell"></div>
+		 </div>
+		 <div class="column" v-on:click="AddTokenToColumn(2, $event)">
+		    <div class="cell"></div>
+		    <div class="cell"></div>
+		    <div class="cell"></div>
+		    <div class="cell"></div>
+		    <div class="cell"></div>
+		    <div class="cell"></div>
+		 </div>
+		 <div class="column" v-on:click="AddTokenToColumn(3, $event)">
+		    <div class="cell"></div>
+		    <div class="cell"></div>
+		    <div class="cell"></div>
+		    <div class="cell"></div>
+		    <div class="cell"></div>
+		    <div class="cell"></div>
+		 </div>
+		 <div class="column" v-on:click="AddTokenToColumn(4, $event)">
+		    <div class="cell"></div>
+		    <div class="cell"></div>
+		    <div class="cell"></div>
+		    <div class="cell"></div>
+		    <div class="cell"></div>
+		    <div class="cell"></div>
+		 </div>
+		 <div class="column" v-on:click="AddTokenToColumn(5, $event)">
+		    <div class="cell"></div>
+		    <div class="cell"></div>
+		    <div class="cell"></div>
+		    <div class="cell"></div>
+		    <div class="cell"></div>
+		    <div class="cell"></div>
+		 </div>
+		 <div class="column" v-on:click="AddTokenToColumn(6, $event)">
+		    <div class="cell"></div>
+		    <div class="cell"></div>
+		    <div class="cell"></div>
+		    <div class="cell"></div>
+		    <div class="cell"></div>
+		    <div class="cell"></div>
+		 </div>
+		</div>
+		<div>
+		  <a href="javascript:void(0);" class="button" v-on:click="ResetGame">Reset Game</a>
+		</div>
+	</div>
+
+	<footer>
+		<script src="https://unpkg.com/vue@2.5.3/dist/vue.js"></script>
+		<script src="app/js/main.js"></script>
+	</footer>	
+</body>
+</html>

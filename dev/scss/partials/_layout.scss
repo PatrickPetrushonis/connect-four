@@ -1,0 +1,20 @@
+.container {
+   display: flex;
+   margin: 44px auto;
+   max-width: 700px;
+}
+
+.column {
+   background-color: #e9e9e9;
+   flex: 1 1 auto;
+   
+   &:hover {
+      background-color: #c7c7c7;
+   }
+}
+
+.cell {   
+   border: 1px solid #333;
+   min-width: 100px;
+   min-height: 100px;
+}

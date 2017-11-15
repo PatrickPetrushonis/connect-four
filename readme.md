@@ -2,13 +2,13 @@
 
 This game is implemented using Javascript, HTML, and CSS.
 
-## Additional tools:
+## Additional tools
 
 * Vue framework for enhanced interaction with MVC and two-way data binding
 * SCSS preprocessor for style nesting and variables
 * Gulp workflow for SCSS compilation into CSS
 
-## Specifications:
+## Specifications
 
 * The board will be 6 units tall, 7 units wide. 
 * The human-player goes first by choosing one of the 7 columns to drop a token.  
@@ -16,7 +16,7 @@ This game is implemented using Javascript, HTML, and CSS.
 * The computer-player will then make a move (no strategy necessary, random column is fine). 
 * The first player to get 4 tokens in a row (horizontal, vertical, or diagonal) is the winner.
   
-## Requirements:
+## Requirements
  
 * Game-ability (does the game work)
 * Code readability
