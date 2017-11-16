@@ -9,6 +9,7 @@ new Vue({
       lossCount: 0,
       isPlayerTurn: true,
       isGameOver: false,
+      isDraw: false,
       hasWon: false,
       hasLost: false
    },
@@ -64,6 +65,20 @@ new Vue({
          if(!this.isPlayerTurn) {
             // Randomly select a column represented by an integer
             var randCol = Math.floor(Math.random() * this.columnCount);
+
+            var canAddTokenToColumn = false;
+
+            // Check that column has empty cells
+            for(var x = 0; x < this.rowCount; x++) {
+               if(this.tokenStates[randCol][x] == 0) {
+                  canAddTokenToColumn = true;
+               }
+            }
+
+            if(!canAddTokenToColumn) {
+               this.AddTokenToRandomColumn();
+               return
+            }
             
             for(var x = this.rowCount - 1; x >= 0; x--) {
                // Ensure selected cell is default state
@@ -78,12 +93,18 @@ new Vue({
                      
                      if(this.CanAddToken(thisToken)) {
                         thisToken.classList.toggle('token--computer');
+                        didAddToken = true;
                         break;
                      }
                   }
                
                   // Check whether computer has triggered a win condition
                   this.CheckForWinCondition();
+
+                  // Check whether game is a draw
+                  if(this.IsGameADraw()) {
+                     this.isDraw = true;
+                  }
                   
                   break;                  
                }
@@ -219,6 +240,17 @@ new Vue({
       CanAddToken: function(token) {
          return !token.classList.contains('token--player') && !token.classList.contains('token--computer');
       },
+      IsGameADraw: function() {
+         for(var x = 0; x < this.columnCount; x++) {
+            for(var y = 0; y < this.rowCount; y++) {
+               if(this.tokenStates[x][y] == 0) {
+                  return false;
+               }
+            }
+         }
+
+         return true;
+      },
       ResetGame: function() {
          // Empty token states for initialization
          this.tokenStates = [];
@@ -239,11 +271,14 @@ new Vue({
             tokens[x].className = 'token';
          }
          
-         // Indicate game is not over
+         // Reset game over states
          this.isGameOver = false;
-         this.isPlayerTurn = true;
+         this.isDraw = false;
          this.hasWon = false;
          this.hasLost = false;
+
+         // Allow player to add first token
+         this.isPlayerTurn = true;
       }
    },
    beforeMount() {
