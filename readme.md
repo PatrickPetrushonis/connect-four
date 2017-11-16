@@ -7,6 +7,7 @@ This game is implemented using Javascript, HTML, and CSS.
 * Additional Tools
 * Specifications
 * Requirements
+* Instructions
 * Thought Processes
 
 ## Additional Tools
@@ -31,11 +32,27 @@ This game is implemented using Javascript, HTML, and CSS.
 * No use of special frameworks or libraries designed for Connect Four
 * Denote and explain any use of other libraries like JQuery
 
+## Instructions
+
+* Download repository to a local folder of your choice
+* Open the command line at that directory (type 'cmd' into windows explore for quick-access)
+* Execute the following commands:
+		
+		// Installs all node modules specified in the package.json
+		npm install
+
+		// Runs the default gulp task which compiles the project
+		gulp
+
 ## Thought Processes
 
 ### Vue Framework
 
 Using this front-end framework greatly facilitates the logic end of the game. This allowed the quick creation of an object with unique methods and properties to handle game state, player turns, gameplay, and win conditions in a concise package. The addition of minimal markup for event and data binding within the HTML also provides a greater sense of order to a potentially cluttered file.
+
+### Gulp Workflow
+
+This workflow is extremely helpful when adding modular improvements to a project. For this particular case, the primary uses are error detection regardless of IDE and compiling SCSS into CSS with all necessary browser prefixes. Additionally, the vue.js library can be easily combined with the custom Vue object into a single JavaScript file. Provided the project were to increase across multiple pages, an addition of the Nunjucks templating engine would be desirable.
 
 ### Win condition checking
 
