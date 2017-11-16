@@ -71,7 +71,7 @@ gulp.task('scripts', function() {
 
 // Compile all sass into css
 gulp.task('styles', function() {
-  var sassOptions = { outputStyle: 'compressed' };
+  var sassOptions = { outputStyle: 'expanded' };
   var autoprefixerOptions = { browsers: ['last 2 versions', '> 5%', 'Firefox ESR'] };
 
   return gulp.src(config.src + 'scss/main.scss')

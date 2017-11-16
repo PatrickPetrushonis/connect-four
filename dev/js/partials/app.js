@@ -1,3 +1,8 @@
+
+/*!
+ * Connect Four game application
+ * Patrick Petrushonis - 2017
+ */
 new Vue({
    el: '#game',
    data: {
