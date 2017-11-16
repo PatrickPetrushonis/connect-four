@@ -1,11 +1,11 @@
 new Vue({
    el: '#game',
    data: {
-      isPlayerTurn: true,
       tokenStates: [],
       columnCount: 7,
       rowCount: 6,
       turnTime: 1000,
+      isPlayerTurn: true,
       isGameOver: false
    },
    methods: {
@@ -23,9 +23,10 @@ new Vue({
                   
                   // Indicate player has selected this cell
                   for(var y = thisTarget.childElementCount - 1; y >= 0; y--) {
-                     if(!thisTarget.children[y].classList.contains('token--player') && 
-                        !thisTarget.children[y].classList.contains('token--computer')) {
-                        thisTarget.children[y].classList.toggle('token--player');
+                     var thisToken = thisTarget.children[y].children[0];
+                     
+                     if(this.CanAddToken(thisToken)) {
+                        thisToken.classList.toggle('token--player');
                         break;
                      }
                   }
@@ -65,8 +66,10 @@ new Vue({
                   
                   // Indicate computer has selected this cell
                   for(var y = columnElements[randCol].childElementCount - 1; y >= 0; y--) {
-                     if(!columnElements[randCol].children[y].classList.contains('token--player') && !columnElements[randCol].children[y].classList.contains('token--computer')) {
-                        columnElements[randCol].children[y].classList.toggle('token--computer');
+                     var thisToken = columnElements[randCol].children[y].children[0];
+                     
+                     if(this.CanAddToken(thisToken)) {
+                        thisToken.classList.toggle('token--computer');
                         break;
                      }
                   }
@@ -201,6 +204,9 @@ new Vue({
       PrepareNextPlayerTurn: function() {
          this.isPlayerTurn = true;
       },
+      CanAddToken: function(token) {
+         return !token.classList.contains('token--player') && !token.classList.contains('token--computer');
+      },
       ResetGame: function() {
          // Empty token states for initialization
          this.tokenStates = [];
@@ -214,13 +220,11 @@ new Vue({
             }
          }
          
-         var columnElements = document.getElementsByClassName('column');
+         var tokens = document.getElementsByClassName('token');
          
-         // Ensure column cells indicate unaligned default values
-         for(var x = 0; x < columnElements.length; x++) {
-            for(var y = 0; y < columnElements[x].childElementCount; y++) {
-               columnElements[x].children[y].className = 'cell';
-            }
+         // Ensure tokens indicate unaligned default values
+         for(var x = 0; x < tokens.length; x++) {
+            tokens[x].className = 'token';
          }
          
          // Indicate game is not over
