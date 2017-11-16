@@ -5,6 +5,8 @@ new Vue({
       columnCount: 7,
       rowCount: 6,
       turnTime: 1000,
+      winCount: 0,
+      lossCount: 0,
       isPlayerTurn: true,
       isGameOver: false,
       hasWon: false,
@@ -52,6 +54,9 @@ new Vue({
             if(this.isGameOver) {
                // Indicate player has won current game
                this.hasWon = true;
+               
+               // Increment win count
+               this.winCount++;
             }
          }
       },
@@ -87,6 +92,9 @@ new Vue({
             if(this.isGameOver) {
                // Indicate player has lost current game
                this.hasLost = true;
+               
+               // Increment win count
+               this.lossCount++;
             }
          }
       },

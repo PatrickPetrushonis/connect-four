@@ -9,6 +9,10 @@
 </head>
 <body>
 	<div id="game">
+		<div class="scoreboard">
+			<span>W : {{ this.winCount }}</span>
+			<span>L : {{ this.lossCount }}</span>
+		</div>
 		<div class="container">
 			<div class="column" @click="AddTokenToColumn(0, $event)">
 				<div class="cell"><div class="token"></div></div>

@@ -19,3 +19,21 @@
    min-height: 100px;
    position: relative;
 }
+
+.scoreboard {
+   border: 1px solid color(gray, dark);
+   border-radius: 4px;
+   display: flex;
+   font-size: 22px;
+   margin: 22px auto;
+   max-width: 300px;
+   text-align: center;
+   width: 100%;
+   
+   span {
+      border: 1px solid color(gray, dark);
+      color: color(gray, jet);
+      flex: 1 1 50%;
+      padding: 11px;
+   }
+}
