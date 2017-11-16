@@ -2,6 +2,7 @@
 var gulp      = require('gulp');
 var prefix    = require('gulp-autoprefixer');
 var clean     = require('gulp-clean-css');
+var include   = require('gulp-include');
 var notify    = require('gulp-notify');
 var plumber   = require('gulp-plumber');
 var sass      = require('gulp-sass');
@@ -48,10 +49,18 @@ gulp.task('delete', function(callback) {
 
 // Clean out files prior to build
 gulp.task('scripts', function() {
+  var includeSettings = {
+    includePaths: [
+      __dirname + "/bower_components",
+      __dirname + "/dev/js"
+    ]
+  }
+  
   return gulp.src(config.src + 'js/main.js')
     .pipe(customPlumber('Error Running Scripts'))
     // Initialize sourcemaps
     .pipe(maps.init())
+    .pipe(include(includeSettings))
     // Write sourcemaps
     .pipe(maps.write())
     .pipe(gulp.dest(config.dest + 'js'))
