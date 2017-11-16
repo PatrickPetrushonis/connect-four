@@ -6,7 +6,9 @@ new Vue({
       rowCount: 6,
       turnTime: 1000,
       isPlayerTurn: true,
-      isGameOver: false
+      isGameOver: false,
+      hasWon: false,
+      hasLost: false
    },
    methods: {
       AddTokenToColumn: function(thisCol, event) {
@@ -48,7 +50,8 @@ new Vue({
             }
             
             if(this.isGameOver) {
-               alert('Victory!');
+               // Indicate player has won current game
+               this.hasWon = true;
             }
          }
       },
@@ -82,11 +85,12 @@ new Vue({
             }
 
             if(this.isGameOver) {
-               alert('Defeated!');
+               // Indicate player has lost current game
+               this.hasLost = true;
             }
          }
       },
-      CheckForWinCondition: function() {
+      CheckForWinCondition: function() {         
          // Check for vertical connections of four tokens
          for(var x = 0; x < this.columnCount; x++) {
             var connectCount = 0;
@@ -136,7 +140,7 @@ new Vue({
          }         
          
          // Check for top left-to-right diagonal connections of four tokens
-         for(var x = 0; x < this.columnCount - 1; x++) {
+         for(var x = 0; x < this.columnCount - 3; x++) {
             var connectCount = 0;
             
             for(var y = 0; y < this.rowCount - 1; y++) {
@@ -169,7 +173,7 @@ new Vue({
          }
             
          // Check for top right-to-left diagonal connections of four tokens 
-         for(var x = this.columnCount - 1; x > 0 ; x--) { 
+         for(var x = this.columnCount - 1; x >= 3 ; x--) { 
             var connectCount = 0;
             
             for(var y = 0; y < this.rowCount - 1; y++) {
@@ -230,6 +234,8 @@ new Vue({
          // Indicate game is not over
          this.isGameOver = false;
          this.isPlayerTurn = true;
+         this.hasWon = false;
+         this.hasLost = false;
       }
    },
    beforeMount() {

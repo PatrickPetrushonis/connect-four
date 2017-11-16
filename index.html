@@ -10,7 +10,7 @@
 <body>
 	<div id="game">
 		<div class="container">
-			<div class="column" v-on:click="AddTokenToColumn(0, $event)">
+			<div class="column" @click="AddTokenToColumn(0, $event)">
 				<div class="cell"><div class="token"></div></div>
 				<div class="cell"><div class="token"></div></div>
 				<div class="cell"><div class="token"></div></div>
@@ -18,7 +18,7 @@
 				<div class="cell"><div class="token"></div></div>
 				<div class="cell"><div class="token"></div></div>
 			</div>
-			<div class="column" v-on:click="AddTokenToColumn(1, $event)">
+			<div class="column" @click="AddTokenToColumn(1, $event)">
 				<div class="cell"><div class="token"></div></div>
 				<div class="cell"><div class="token"></div></div>
 				<div class="cell"><div class="token"></div></div>
@@ -26,7 +26,7 @@
 				<div class="cell"><div class="token"></div></div>
 				<div class="cell"><div class="token"></div></div>
 			</div>
-			<div class="column" v-on:click="AddTokenToColumn(2, $event)">
+			<div class="column" @click="AddTokenToColumn(2, $event)">
 				<div class="cell"><div class="token"></div></div>
 				<div class="cell"><div class="token"></div></div>
 				<div class="cell"><div class="token"></div></div>
@@ -34,7 +34,7 @@
 				<div class="cell"><div class="token"></div></div>
 				<div class="cell"><div class="token"></div></div>
 			</div>
-			<div class="column" v-on:click="AddTokenToColumn(3, $event)">
+			<div class="column" @click="AddTokenToColumn(3, $event)">
 				<div class="cell"><div class="token"></div></div>
 				<div class="cell"><div class="token"></div></div>
 				<div class="cell"><div class="token"></div></div>
@@ -42,7 +42,7 @@
 				<div class="cell"><div class="token"></div></div>
 				<div class="cell"><div class="token"></div></div>
 			</div>
-			<div class="column" v-on:click="AddTokenToColumn(4, $event)">
+			<div class="column" @click="AddTokenToColumn(4, $event)">
 				<div class="cell"><div class="token"></div></div>
 				<div class="cell"><div class="token"></div></div>
 				<div class="cell"><div class="token"></div></div>
@@ -50,7 +50,7 @@
 				<div class="cell"><div class="token"></div></div>
 				<div class="cell"><div class="token"></div></div>
 			</div>
-			<div class="column" v-on:click="AddTokenToColumn(5, $event)">
+			<div class="column" @click="AddTokenToColumn(5, $event)">
 				<div class="cell"><div class="token"></div></div>
 				<div class="cell"><div class="token"></div></div>
 				<div class="cell"><div class="token"></div></div>
@@ -58,7 +58,7 @@
 				<div class="cell"><div class="token"></div></div>
 				<div class="cell"><div class="token"></div></div>
 			</div>
-			<div class="column" v-on:click="AddTokenToColumn(6, $event)">
+			<div class="column" @click="AddTokenToColumn(6, $event)">
 				<div class="cell"><div class="token"></div></div>
 				<div class="cell"><div class="token"></div></div>
 				<div class="cell"><div class="token"></div></div>
@@ -68,7 +68,20 @@
 			</div>
 		</div>
 		<div class="center">
-			<a href="javascript:void(0);" class="button" v-on:click="ResetGame">Reset Game</a>
+			<a href="javascript:void(0);" class="button" @click="ResetGame">Reset Game</a>
+		</div>
+
+		<div class="modal__container" :class="{ visible: hasWon }">
+			<div class="modal">
+				<h1>VICTORY</h1>
+				<a href="javascript:void(0);" class="button" @click="ResetGame">Play Again?</a>
+			</div>
+		</div>
+		<div class="modal__container" :class="{ visible: hasLost }">
+			<div class="modal">
+				<h1>DEFEAT</h1>
+				<a href="javascript:void(0);" class="button" @click="ResetGame">Try Again?</a>
+			</div>
 		</div>
 	</div>
 
