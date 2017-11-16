@@ -41,6 +41,9 @@ This game is implemented using Javascript, HTML, and CSS.
 		// Installs all node modules specified in the package.json
 		npm install
 
+		// Adds gulp to the environment PATH for use in the CLI 
+		npm install -g gulp
+
 		// Runs the default gulp task which compiles the project
 		gulp
 
