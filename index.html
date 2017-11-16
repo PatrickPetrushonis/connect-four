@@ -5,69 +5,70 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Connect Four</title>
 	<link href="app/css/main.css" rel="stylesheet" type="text/css"/>
+	<link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
 </head>
 <body>
 	<div id="game">
 		<div class="container">
-		 <div class="column" v-on:click="AddTokenToColumn(0, $event)">
-		    <div class="cell"><div class="token"></div></div>
-		    <div class="cell"><div class="token"></div></div>
-		    <div class="cell"><div class="token"></div></div>
-		    <div class="cell"><div class="token"></div></div>
-		    <div class="cell"><div class="token"></div></div>
-		    <div class="cell"><div class="token"></div></div>
-		 </div>
-		 <div class="column" v-on:click="AddTokenToColumn(1, $event)">
-		    <div class="cell"><div class="token"></div></div>
-		    <div class="cell"><div class="token"></div></div>
-		    <div class="cell"><div class="token"></div></div>
-		    <div class="cell"><div class="token"></div></div>
-		    <div class="cell"><div class="token"></div></div>
-		    <div class="cell"><div class="token"></div></div>
-		 </div>
-		 <div class="column" v-on:click="AddTokenToColumn(2, $event)">
-		    <div class="cell"><div class="token"></div></div>
-		    <div class="cell"><div class="token"></div></div>
-		    <div class="cell"><div class="token"></div></div>
-		    <div class="cell"><div class="token"></div></div>
-		    <div class="cell"><div class="token"></div></div>
-		    <div class="cell"><div class="token"></div></div>
-		 </div>
-		 <div class="column" v-on:click="AddTokenToColumn(3, $event)">
-		    <div class="cell"><div class="token"></div></div>
-		    <div class="cell"><div class="token"></div></div>
-		    <div class="cell"><div class="token"></div></div>
-		    <div class="cell"><div class="token"></div></div>
-		    <div class="cell"><div class="token"></div></div>
-		    <div class="cell"><div class="token"></div></div>
-		 </div>
-		 <div class="column" v-on:click="AddTokenToColumn(4, $event)">
-		    <div class="cell"><div class="token"></div></div>
-		    <div class="cell"><div class="token"></div></div>
-		    <div class="cell"><div class="token"></div></div>
-		    <div class="cell"><div class="token"></div></div>
-		    <div class="cell"><div class="token"></div></div>
-		    <div class="cell"><div class="token"></div></div>
-		 </div>
-		 <div class="column" v-on:click="AddTokenToColumn(5, $event)">
-		    <div class="cell"><div class="token"></div></div>
-		    <div class="cell"><div class="token"></div></div>
-		    <div class="cell"><div class="token"></div></div>
-		    <div class="cell"><div class="token"></div></div>
-		    <div class="cell"><div class="token"></div></div>
-		    <div class="cell"><div class="token"></div></div>
-		 </div>
-		 <div class="column" v-on:click="AddTokenToColumn(6, $event)">
-		    <div class="cell"><div class="token"></div></div>
-		    <div class="cell"><div class="token"></div></div>
-		    <div class="cell"><div class="token"></div></div>
-		    <div class="cell"><div class="token"></div></div>
-		    <div class="cell"><div class="token"></div></div>
-		    <div class="cell"><div class="token"></div></div>
-		 </div>
+			<div class="column" v-on:click="AddTokenToColumn(0, $event)">
+				<div class="cell"><div class="token"></div></div>
+				<div class="cell"><div class="token"></div></div>
+				<div class="cell"><div class="token"></div></div>
+				<div class="cell"><div class="token"></div></div>
+				<div class="cell"><div class="token"></div></div>
+				<div class="cell"><div class="token"></div></div>
+			</div>
+			<div class="column" v-on:click="AddTokenToColumn(1, $event)">
+				<div class="cell"><div class="token"></div></div>
+				<div class="cell"><div class="token"></div></div>
+				<div class="cell"><div class="token"></div></div>
+				<div class="cell"><div class="token"></div></div>
+				<div class="cell"><div class="token"></div></div>
+				<div class="cell"><div class="token"></div></div>
+			</div>
+			<div class="column" v-on:click="AddTokenToColumn(2, $event)">
+				<div class="cell"><div class="token"></div></div>
+				<div class="cell"><div class="token"></div></div>
+				<div class="cell"><div class="token"></div></div>
+				<div class="cell"><div class="token"></div></div>
+				<div class="cell"><div class="token"></div></div>
+				<div class="cell"><div class="token"></div></div>
+			</div>
+			<div class="column" v-on:click="AddTokenToColumn(3, $event)">
+				<div class="cell"><div class="token"></div></div>
+				<div class="cell"><div class="token"></div></div>
+				<div class="cell"><div class="token"></div></div>
+				<div class="cell"><div class="token"></div></div>
+				<div class="cell"><div class="token"></div></div>
+				<div class="cell"><div class="token"></div></div>
+			</div>
+			<div class="column" v-on:click="AddTokenToColumn(4, $event)">
+				<div class="cell"><div class="token"></div></div>
+				<div class="cell"><div class="token"></div></div>
+				<div class="cell"><div class="token"></div></div>
+				<div class="cell"><div class="token"></div></div>
+				<div class="cell"><div class="token"></div></div>
+				<div class="cell"><div class="token"></div></div>
+			</div>
+			<div class="column" v-on:click="AddTokenToColumn(5, $event)">
+				<div class="cell"><div class="token"></div></div>
+				<div class="cell"><div class="token"></div></div>
+				<div class="cell"><div class="token"></div></div>
+				<div class="cell"><div class="token"></div></div>
+				<div class="cell"><div class="token"></div></div>
+				<div class="cell"><div class="token"></div></div>
+			</div>
+			<div class="column" v-on:click="AddTokenToColumn(6, $event)">
+				<div class="cell"><div class="token"></div></div>
+				<div class="cell"><div class="token"></div></div>
+				<div class="cell"><div class="token"></div></div>
+				<div class="cell"><div class="token"></div></div>
+				<div class="cell"><div class="token"></div></div>
+				<div class="cell"><div class="token"></div></div>
+			</div>
 		</div>
-		<div>
-		  <a href="javascript:void(0);" class="button" v-on:click="ResetGame">Reset Game</a>
+		<div class="center">
+			<a href="javascript:void(0);" class="button" v-on:click="ResetGame">Reset Game</a>
 		</div>
 	</div>
 

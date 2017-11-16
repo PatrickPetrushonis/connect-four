@@ -4,13 +4,14 @@
    border: 1px solid color(gray, jet);
    border-radius: 4px;
    color: color(gray, jet);
-   display: block;
-   margin: 0 auto;
+   display: inline-block;
+   font-size: 18px;
+   font-weight: 600;
+   margin: 0 0 22px;
    padding: 11px;
    text-align: center;
    text-decoration: none;
    transition: all 0.3s ease-out;
-   width: 100px;
    
    &:hover {
       background-color: color(gray, jet);
