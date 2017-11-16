@@ -5,16 +5,16 @@
 }
 
 .column {
-   background-color: #e9e9e9;
+   background-color: color(gray, light);
    flex: 1 1 auto;
    
    &:hover {
-      background-color: #c7c7c7;
+      background-color: color(gray, mild);
    }
 }
 
 .cell {   
-   border: 1px solid #333;
+   border: 1px solid color(gray, mid);
    min-width: 100px;
    min-height: 100px;
    position: relative;

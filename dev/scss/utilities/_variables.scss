@@ -1,0 +1,19 @@
+
+// Colors accessible via nested maps
+$color-map: (
+    player: (
+        light   : #cc1e1e,
+        dark    : #a31818
+    ),
+    computer: (
+        light   : #474747,
+        dark    : #1a1a1a
+    ),
+    gray: (     
+        light   : #f9f9f9,
+        mild    : #e7e7e7,
+        mid     : #b2b2b2,
+        dark    : #3d3d3d,
+        jet     : #1a1a1a
+    )
+);

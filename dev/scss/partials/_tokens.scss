@@ -1,11 +1,12 @@
 
 .token {
+   border: 4px solid transparent;
    border-radius: 100%;
-   left: calc(50% - 40px);
+   left: calc(50% - 44px);
    min-width: 80px;
    min-height: 80px;
    position: absolute;
-   top: calc(50% - 40px);
+   top: calc(50% - 44px);
    transform: translateY(-100vh);
    transition: transform 0.5s ease-in;
 }
@@ -19,9 +20,11 @@
 }
 
 .token--player {
-   background-color: red;
+   background-color: color(player, dark);
+   border-color: color(player, light);
 }
 
 .token--computer {
-   background-color: black;
+   background-color: color(computer, dark);
+   border-color: color(computer, light);
 }
