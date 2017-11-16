@@ -57,9 +57,13 @@ new Vue({
                }
             }
             
+            // Indicate player has won current game
             if(this.isGameOver) {
-               // Indicate player has won current game
-               this.hasWon = true;
+               var vm = this;
+
+               setTimeout(function() {
+                  vm.hasWon = true;
+               }, this.turnTime);
                
                // Increment win count
                this.winCount++;
@@ -108,16 +112,24 @@ new Vue({
 
                   // Check whether game is a draw
                   if(this.IsGameADraw()) {
-                     this.isDraw = true;
+                     var vm = this;
+
+                     setTimeout(function() {
+                        vm.isDraw = true;
+                     }, this.turnTime);
                   }
                   
                   break;                  
                }
             }
 
+            // Indicate player has lost current game
             if(this.isGameOver) {
-               // Indicate player has lost current game
-               this.hasLost = true;
+               var vm = this;
+
+               setTimeout(function() {
+                  vm.hasLost = true;
+               }, this.turnTime);
                
                // Increment win count
                this.lossCount++;
